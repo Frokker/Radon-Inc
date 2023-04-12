@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:safety_url/logic.dart';
 
 class QrScanScreen extends StatefulWidget {
   const QrScanScreen({Key? key}) : super(key: key);
@@ -28,8 +29,12 @@ class _QrScanScreenState extends State<QrScanScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: const Text("Qr Code Scanner"), centerTitle: true),
+      appBar: AppBar(
+        title: const Text("Radon Qr Code Scanner"),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -42,15 +47,22 @@ class _QrScanScreenState extends State<QrScanScreen> {
               //   child: Text(data != "-1" ? data : "Qr Kode Bulunamad"),
               // ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Center(
-                    child: Text(data != '-1' ? data : 'nothing'),
-                  ),
+                  Text(data != '-1' ? data : 'Ничего не отсканировано'),
 
                   // data[0] + data[1] + data[2] + data[3] == "http" ? ElevatedButton(onPressed: (){}, child: Text('Перейти')) : Text(''),
                 ],
               ),
 
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text("Проверить"),
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
+                  backgroundColor: MaterialStateProperty.all(Colors.blue[400]),
+                ),
+              ),
               ElevatedButton(
                 onPressed: () => scanQrCode(),
                 child: const Text("Отсканировать повторно"),
