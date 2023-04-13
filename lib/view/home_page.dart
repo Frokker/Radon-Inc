@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:safety_url/view/widgets/body.dart';
+import 'package:safety_url/view/widgets/floating_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,8 +17,7 @@ class _HomePageState extends State<HomePage> {
 
     return SafeArea(
       child: Scaffold(
-        body: Body(),
-
+        body: Center(child: Body()),
         appBar: AppBar(
           leading: Image.asset(
             'assets/logo2.png',
@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
           title: const Text('Radon Qr Code Scanner'),
           centerTitle: true,
         ),
+
         // bottomNavigationBar: BottomNavigationBar(
         //   backgroundColor: Colors.black,
         //   items: [
@@ -39,25 +40,9 @@ class _HomePageState extends State<HomePage> {
         //         backgroundColor: Colors.transparent),
         //   ],
         // ),
-        floatingActionButton: Container(
-          height: 100,
-          width: 100,
-          child: FloatingActionButton(
-            hoverColor: Colors.blue,
-            elevation: 4.0,
-            onPressed: () => Navigator.pushNamed(context, 'qrPage'),
-            child: Container(
-              height: 76,
-              width: 76,
-              child: SvgPicture.asset(
-                'assets/circus_qr_icon.svg',
-              ),
-            ),
-          ),
-        ),
+        floatingActionButton: const FloatingButton(),
         floatingActionButtonLocation:
             FloatingActionButtonLocation.miniCenterFloat,
-        // body: Body(),
       ),
     );
   }

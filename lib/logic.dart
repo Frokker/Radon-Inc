@@ -1,24 +1,61 @@
-import 'dart:convert';
-import 'package:dio/dio.dart';
-import 'package:flutter/services.dart';
+// // import 'package:json_annotation/json_annotation.dart';
 
-class GetResponces {
-  late String url;
-  
-  GetResponces({required this.url});
-  static Future<String> getResponces(String url) async {
-    return '';
-  }
+// // part 'logic.g.dart';
 
-  Uint8List base64Decode(String source) => base64.decode(source);
+// // @JsonSerializable()
+// // class UrlData {
+// //   @JsonKey(name: 'malicious')
+// //   final int malicious;
+// //   @JsonKey(name: 'suspicious')
+// //   final int suspicious;
+// //   UrlData({required this.malicious, required this.suspicious});
 
-  Future<void> getVaritify() async {
-    final response = await Dio().get(
-        'https://www.virustotal.com/api/v3/$url/{url_id}',
-        queryParameters: {
-          "accept": "application/json",
-          "x-apikey":
-              "436f3c819f4456f918c14ec909e7c7808b9b94db14ace82607b624c279f037da",
-        });
-  }
-}
+// //   factory UrlData.fromJson(Map<String, dynamic> json) {
+
+// //     retutrn _$UrlDataFromJson(json);
+// // return UrlData(
+// //   malicious:
+// //       json['data']['attributes']['last_analysis_stats']['malicious'] as int,
+// //   suspicious: json['data']['attributes']['last_analysis_stats']
+// //       ['suspicious'] as int,
+// // );
+// //   }
+
+// // }
+// // import 'dart:math';
+
+// // int analysUrl() {
+// //   var rng = Random();
+// //   return rng.nextInt(3);
+// // }
+// // import 'package:python_extension/python_extension.dart';
+
+// // void main() {
+// //   PythonBridge python = PythonBridge();
+// //   python.start();
+
+// //   python.exec('import scripts');
+// //   dynamic result = python.eval('scripts.code()');
+// //   print(result);
+// //   python.stop();
+// // }
+
+
+// import 'package:dartpy/dartpy.dart';
+
+// void main() async {
+//   // Создаем экземпляр PyInterpreter
+//   var interpreter = await PyInterpreter.create();
+
+//   // Загружаем код питон скрипта
+//   await interpreter.loadScript('example.py');
+
+//   // Вызываем функцию hello() на питоне
+//   var result = await interpreter.run("hello()");
+
+//   // Отображаем результат
+//   print(result); // "Hello from Python!"
+
+//   // Отключаем интерпретатор PyDart
+//   await interpreter.dispose();
+// }
